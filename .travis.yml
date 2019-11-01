@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - 7
 sudo: required # telling that these level of priviledges are required
 servicres: #tell travis what we need preinstalled
   - docker
