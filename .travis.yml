@@ -1,0 +1,9 @@
+sudo: required # telling that these level of priviledges are required
+servicres: #tell travis what we need preinstalled
+  - docker
+
+before_install: # things need to be done before we start running tests
+  - docker build -t docker-react -f Dockerfile.dev . # giving command to build our image with the dev file and tagging it because we dont have access to the image id in the docker file.
+
+script:
+  - docker run docker-react npm run test -- --coverage
