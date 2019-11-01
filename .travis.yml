@@ -6,7 +6,7 @@ before_install: # things need to be done before we start running tests
   - docker build -t docker-react -f Dockerfile.dev . # giving command to build our image with the dev file and tagging it because we dont have access to the image id in the docker file.
 
 script:
-  - docker run -e CI=true docker-react npm run test -- --coverage # the -e set's the enviroment variable so that the test exit by itself when the tests are complete
+  - docker run -e CI=true docker-react npm run test # the -e set's the enviroment variable so that the test exit by itself when the tests are complete
 
 deploy:
   provider: elasticbeanstalk
@@ -19,4 +19,4 @@ deploy:
     branch: "master"
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
-    secure: "$AWS_SECRET_KEYS"
+    secure: $AWS_SECRET_KEYS
