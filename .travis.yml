@@ -8,6 +8,7 @@ before_install: # things need to be done before we start running tests
 script:
   - docker run -e CI=true docker-react npm run test # the -e set's the enviroment variable so that the test exit by itself when the tests are complete
 
+
 deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
